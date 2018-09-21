@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">    
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let student of students">
+              <tr>
+                <td>{{student.name}}</td>
+                <td>{{student.lastName}}</td>
+                <td>{{student.age}}</td>
+                <td>
+                  <!-- <a [routerLink]="['/student/edit/', student.id]">Edit</a> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

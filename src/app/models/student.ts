@@ -1,7 +1,8 @@
 export class Student {
+    id: number;
     name: string;
     lastName: string;
-    age: string;
-    gender: number;
+    age: number;
+    gender: string;
     birthday: string;
 }
