@@ -1,0 +1,30 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <label>
+    Age:
+    <input type="number" formControlName="age">
+  </label>
+
+  <label>
+    Gender:
+    <input type="radio" value="Male" formControlName="gender">
+    <input type="radio" value="Female" formControlName="gender">
+  </label>
+
+  <label>
+    Birthday:
+    <input type="text" formControlName="birthday">
+  </label>
+
+  <button type="submit">Submit</button>
+</form>
