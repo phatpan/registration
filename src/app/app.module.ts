@@ -7,9 +7,16 @@ import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { AddStudentComponent } from './student/add-student/add-student.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './student/dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
-import { StudentComponent } from './student/student/student.component'
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'student/add', component: AddStudentComponent },
+  { path: 'student/edit/:id', component: AddStudentComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +25,13 @@ import { StudentComponent } from './student/student/student.component'
     FormGroupComponent,
     AddStudentComponent,
     DashboardComponent,
-    StudentListComponent,
-    StudentComponent
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

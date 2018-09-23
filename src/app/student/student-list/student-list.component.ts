@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../models/student';
+import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
   selector: 'app-student-list',
@@ -9,16 +10,22 @@ import { Student } from '../../models/student';
 export class StudentListComponent implements OnInit {
   students: Student[];
 
-  constructor() { }
+  constructor(
+    private studentService: StudentService) { }
   ngOnInit() {
-    this.students = [{
-      id: 12,
-      name: 'kae',
-      lastName: 'kae',
-      age: 25,
-      gender: 'kae',
-      birthday: 'kae',
-    }];
+    this.getStudentList();
+  }
+
+  getStudentList() {
+    this.studentService.getStudentList().subscribe((response: Student[]) => {
+      this.students = response;
+    });
+  }
+
+  delete(id: number) {
+    this.studentService.deleteStudentByID(id).subscribe(() => {
+      this.getStudentList();
+    });
   }
 
 }
